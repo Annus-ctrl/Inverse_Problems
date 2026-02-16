@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Routines for practical session on image reconstruction and inverse problems.
-
 To start your session, just do:
 
     from tp_utils import *          # utilities for the practical session
