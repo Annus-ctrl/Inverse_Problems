@@ -2,35 +2,33 @@
 
 This project reconstructs a blurred Hubble Space Telescope (HST) image of Saturn using the known Point Spread Function (PSF).
 
-# Objective
+## Objective
 
 To compare two approaches for solving the inverse imaging problem:
 
-Wiener filtering (Fourier domain)
-
-Conjugate Gradient (CG) with Tikhonov regularization
+- Wiener filtering (Fourier domain)
+- Conjugate Gradient (CG) with Tikhonov regularization
 
 The forward model is:
 
-y = Hx + n
+`y = Hx + n`
 
-where H is the PSF convolution operator.
+where `H` is the PSF convolution operator.
 
-# Methods
+## Methods
 
-FFT-based convolution
+### Wiener Filter
 
-Wiener filter:
+`X_hat(k) = H*(k) / (|H(k)|^2 + mu) * Y(k)`
 
-X_hat(k) = H*(k) / (|H(k)|^2 + mu) * Y(k)
+### Conjugate Gradient Reconstruction
 
-Iterative CG solution of:
+`(H^T W H + mu D^T D) x = H^T W y`
 
-(H^T W H + mu D^T D) x = H^T W y
+- FFT-based convolution
+- Masked weights for missing pixels
+- Finite-difference regularization
 
-Masked weights to simulate missing pixels
-
-Finite-difference regularization
 
 # Key Results
 
